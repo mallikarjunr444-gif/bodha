@@ -1,7 +1,8 @@
 # BODHA — Production Readiness Guide
 
-> Module O completed: 2026-09-27  
-> Status: **SECURITY HARDENED — READY FOR PRODUCTION DEPLOYMENT (Module P)**
+> Module P completed: 2026-09-27  
+> Module Q completed: 2026-09-27  
+> Status: **PUBLIC DEPLOYMENT VERIFIED ON RAILWAY (Module P) & REPOSITORY PREPARED FOR GITHUB (Module Q)**
 
 ---
 
@@ -170,35 +171,68 @@ cd frontend && npm run lint && npm run build
 
 ---
 
-## 4. Production Readiness Status
+## 4. Production Readiness & Deployment Status
 
-### 🟢 COMPLETED IN MODULES M, N, & O
+### 🟢 COMPLETED & VERIFIED (Modules M, N, O, P)
 
 - [x] **BCrypt Password Hashing (Module M)** — Verified 10-round BCrypt; database stores only 60-character `$2a$` hashes. Passwords never appear in plaintext or API responses.
 - [x] **Cryptographic JWT Authentication (Module N)** — JJWT HMAC-SHA256 tokens issued on login/registration with minimal identity claims (`sub`, `userId`, `email`, `role`).
 - [x] **Server-Side Identity Verification (Module N)** — All domain controllers enforce identity via `CurrentUserService.requireCurrentUserId()` from `SecurityContext`. Client-supplied user IDs cannot forge identity or access cross-user resources.
 - [x] **Centralized 401 & Auto-Logout (Module N)** — Frontend `apiFetch` automatically injects Bearer JWT and triggers auto-logout upon 401 token expiration/rejection.
-- [x] **Production CORS Configuration (Module O)** — Backend dynamically configures allowed origins via `CORS_ALLOWED_ORIGINS`. Wildcards (`*`) with credentials are explicitly rejected. Preflight OPTIONS requests supported.
-- [x] **Production JWT Secret Enforcement (Module O)** — `JwtService` detects `prod` or `production` profiles and aborts startup if the default fallback secret is used. Secret length >= 256 bits enforced.
-- [x] **Application-Level Rate Limiting (Module O)** — Thread-safe in-memory token bucket rate limiting on `POST /api/auth/login` (10 RPM), `POST /api/auth/register` (5 RPM), and `/api/ai/**` (20 RPM). Returns HTTP 429 with `Retry-After: 60`.
-- [x] **Security Headers (Module O)** — Enabled `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy`.
-- [x] **Error Response Sanitization (Module O)** — Catches `DataAccessException` and `HttpMessageNotReadableException`, preventing SQL leakage, stack traces, and internal class names.
-- [x] **Demo Access Production Boundary (Module O)** — Documented `VITE_ENABLE_DEMO_ACCESS=false` for production. Demo login never bypasses JWT verification.
-- [x] **AI API Key Isolation (Module O)** — Google Gemini API keys are backend-only, read via `AI_API_KEY`, and never exposed in frontend code, git, or responses.
-- [x] **Database Safety (Modules M, N, O)** — All 17 tables and existing data retained without reset or reseed.
+- [x] **Production CORS Configuration (Module O & P)** — Backend dynamically configures allowed origins (`https://bodha-frontend-production.up.railway.app`). Wildcards (`*`) with credentials are explicitly rejected. Preflight OPTIONS requests verified live (HTTP 200 with credentials for frontend; HTTP 403 for unauthorized origins).
+- [x] **Production JWT Secret Enforcement (Module O & P)** — `JwtService` detects `prod` profile and aborts startup if the default fallback secret is used. Strong secret configured in Railway environment.
+- [x] **Application-Level Rate Limiting (Module O & P)** — Token bucket rate limiting on `POST /api/auth/login` (10 RPM), `POST /api/auth/register` (5 RPM), and `/api/ai/**` (20 RPM).
+- [x] **Security Headers (Module O & P)** — Enabled `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy`.
+- [x] **Error Response Sanitization (Module O & P)** — Catches `DataAccessException` and `HttpMessageNotReadableException`, preventing SQL leakage, stack traces, and internal class names.
+- [x] **Demo Access Production Boundary (Module O & P)** — Production frontend configured with `VITE_ENABLE_DEMO_ACCESS=false`.
+- [x] **Railway Project Provisioning (Module P)** — Project `bodha` created with 3 active services: `bodha-backend`, `bodha-frontend`, `Postgres`.
+- [x] **Public HTTPS URLs Verified (Module P)**:
+  - Backend: `https://bodha-backend-production.up.railway.app`
+  - Frontend: `https://bodha-frontend-production.up.railway.app`
+- [x] **Production Database Intact (Module P)** — Railway PostgreSQL instance verified intact: all 17 tables confirmed, zero resets/drops, curriculum seeds for skills and baseline diagnostic assessments present.
+- [x] **Backend Health Check Verified (Module P)** — `GET /api/health` returns HTTP 200 `{"status":"UP","service":"BODHA API","version":"1.0.0"}`.
+- [x] **Frontend Asset Delivery Verified (Module P)** — Caddy server on Railway serves index.html and compiled JS/CSS bundles with HTTP 200.
+- [x] **Complete End-to-End Learner Journey Verified (Module P)** — Automated live verification tested and passed:
+  1. Register new learner (`POST /api/auth/register` -> 201)
+  2. Login (`POST /api/auth/login` -> 200)
+  3. Catalog browsing (`GET /api/domains`, `GET /api/subjects` -> 200)
+  4. Create learning goal (`POST /api/goals` -> 201)
+  5. Fetch diagnostic assessment (`GET /api/assessments/subject/{id}/diagnostic` -> 200)
+  6. Start assessment attempt (`POST /api/assessments/{id}/attempts` -> 201)
+  7. Submit question responses (`POST /api/attempts/{id}/responses` -> 200)
+  8. Finalize assessment (`POST /api/attempts/{id}/complete` -> 200)
+  9. Skill-gap matrix analysis (`POST /api/attempts/{id}/skill-gaps/analyze` -> 200)
+  10. Roadmap generation & retrieval (`POST /api/goals/{id}/roadmap/generate` -> 200)
+  11. Lesson progress tracking (`POST /api/lessons/{id}/start`, `complete` -> 200)
+  12. Dashboard summary (`GET /api/progress/user/{id}` -> 200)
+  13. AI next-step and recommendation (`GET /api/ai/next-step`, `/recommendations` -> 200)
+  14. JWT User Isolation & Cross-User Security Check: Attacker user rejected on another user's goal/progress/roadmap (HTTP 400/403).
+- [x] **Local Test & Build Suites Verified (Module P)**:
+  - Backend: 70/70 tests PASS (100% pass rate).
+  - Frontend lint: 0 errors.
+  - Frontend build: SUCCESS.
 
-### 🟡 NOT YET ACTIVE (Targeted for Module P — Deployment Phase)
+---
 
-1. **HTTPS / TLS Termination**  
-   Must terminate at the cloud load balancer, reverse proxy, or hosting platform TLS layer (HTTP → HTTPS automatic redirect).
-2. **Actual Cloud Deployment**  
-   Backend container / JVM deployment to cloud provider (AWS, GCP, Railway, Render, etc.).
-3. **Production Domain & DNS**  
-   Configure production domain records and supply final URL to `CORS_ALLOWED_ORIGINS` and `VITE_API_BASE_URL`.
-4. **Real Production Secrets**  
-   Inject cryptographically generated random string for `JWT_SECRET` in production cloud environment.
-5. **Real Gemini API Key**  
-   Inject live Google AI Studio API key in production cloud environment.
+### 🟡 STILL REQUIRING MANUAL CONFIGURATION (When Desired)
+
+1. **Google Gemini Production API Key**:
+   - Currently operating in safe deterministic mode with `AI_PROVIDER=mock`.
+   - When live Gemini LLM generation is desired: Set `AI_API_KEY=<gemini_key>` and `AI_PROVIDER=gemini` in Railway `bodha-backend` service variables.
+
+---
+
+### 🔵 OPTIONAL FUTURE WORK
+
+1. **Custom Domain & DNS**:
+   - Attach custom apex/subdomain (e.g., `app.bodha.ai`) via Railway custom domain manager.
+   - Update `CORS_ALLOWED_ORIGINS` on backend and `VITE_API_BASE_URL` on frontend accordingly.
+2. **GitHub Repository Publishing & CI/CD**:
+   - Push repository to GitHub and connect Railway Git deployment triggers.
+3. **Product Design & Polish**:
+   - Splash / initial loading animation.
+   - Final logo / brand typography refinement.
+   - Social meta tags & OpenGraph SEO optimization.
 
 ---
 
@@ -207,10 +241,11 @@ cd frontend && npm run lint && npm run build
 ### What is verified safe right now
 - **Stateless cryptographic authentication** — Bearer JWT with HMAC-SHA256 signature verification.
 - **Server-side identity binding** — Resource authorization checked via `CurrentUserService` / SecurityContext.
+- **Cross-user resource isolation** — Live verified: tampering with userId parameters is rejected by server.
 - **Passwords securely hashed** — One-way BCrypt ($2a$ format) with work factor 10.
 - **Passwords never returned in API responses** — Excluded from all DTOs and models.
 - **No stack traces leaked to clients** — `GlobalExceptionHandler` sanitizes all error responses including database and serialization errors.
-- **CORS restricted** — Restricted to configured origin(s); wildcard `*` is forbidden when credentials are enabled.
+- **CORS restricted** — Restricted to configured origin(s); wildcard `*` is forbidden when credentials are enabled. Unauthorized origins receive HTTP 403.
 - **Rate limiting active** — Login, register, and AI endpoints reject burst traffic with HTTP 429.
 - **localStorage** — Stores only signed JWT token and non-sensitive learner session profile (no passwords, no hashes).
 - **AI prompts** — Never include credentials, password hashes, or secret tokens.
@@ -240,7 +275,9 @@ any file containing AI_API_KEY, database passwords, or production JWT secrets
 - [x] Backend tests: 70/70 passing (`ProductionSecurityTests`, `AuthenticationSecurityTests`, `OwnershipAuthorizationTests`)
 - [x] Frontend lint: 0 errors
 - [x] Frontend build: SUCCESS
-- [x] PostgreSQL database intact: 0 dropped tables, 0 resets
-- [ ] Production cloud environment configured with `JWT_SECRET`, `CORS_ALLOWED_ORIGINS`, `AI_API_KEY` (Module P)
-- [ ] TLS termination configured (HTTP -> HTTPS) (Module P)
+- [x] PostgreSQL database intact: 17 tables confirmed, zero resets, curriculum seeds present
+- [x] Public Railway services online (bodha-backend, bodha-frontend, Postgres)
+- [x] Public health endpoint UP (HTTP 200)
+- [x] Production CORS verified live (strict origin match, credentials enabled, wildcard rejected)
+- [x] End-to-end production learner journey verified live (all 14 journey stages + cross-user security checks passed)
 
