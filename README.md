@@ -17,7 +17,7 @@
 
 ## 1. Overview
 
-**Jnanora** is an AI-powered personalized learning platform that creates structured, adaptive educational paths for **any discipline**—from backend systems and applied mathematics to conversational languages and product strategy.
+**Jnanora** is an AI-powered personalized learning platform architected and founded by **Mallanagouda M** (Founder & CEO). It creates structured, adaptive educational paths for **any discipline**—from backend systems and applied mathematics to conversational languages and product strategy.
 
 Modern self-paced learning is overwhelmingly fragmented: learners bounce between video tutorials, disorganized documentation, and unstructured chatbot conversations without measuring real competency. Jnanora replaces passive browsing with an **authoritative, closed-loop pedagogical engine**:
 
@@ -378,8 +378,12 @@ BODHA/
 - **Strict Environment Binding:** Secrets must be injected via runtime environment variables.
 - **Stateless Sessions:** Token-based authentication eliminates session-fixation and CSRF vulnerabilities.
 
+## 13. Leadership & Author
+
+- **Mallanagouda M** — Founder & CEO, Jnanora
+
 ---
 
-## 13. License
+## 14. License
 
 This project is licensed under the [MIT License](LICENSE).

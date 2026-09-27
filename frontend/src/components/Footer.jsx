@@ -17,6 +17,11 @@ export default function Footer() {
               <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
               <span>AI is an adaptive module in Jnanora, not the entire product.</span>
             </div>
+            <div className="pt-2 text-xs text-slate-400 flex items-center gap-2">
+              <span className="text-slate-300 font-semibold">Mallanagouda M</span>
+              <span className="text-slate-600">•</span>
+              <span className="text-slate-400">Founder & CEO</span>
+            </div>
           </div>
 
           {/* Architecture & Tech Stack */}
@@ -60,7 +65,7 @@ export default function Footer() {
         </div>
 
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[var(--text-muted)] gap-4">
-          <p>© {new Date().getFullYear()} Jnanora Platform. Portfolio-grade autonomous learning architecture.</p>
+          <p>© {new Date().getFullYear()} Jnanora Platform. Founded by Mallanagouda M (Founder & CEO).</p>
           <p className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-400" />
             <span>PostgreSQL & Spring Boot Online</span>

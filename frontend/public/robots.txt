@@ -1,0 +1,15 @@
+# Jnanora Robots Configuration
+# Production URL: https://bodha-frontend-production.up.railway.app/
+
+User-agent: *
+Allow: /
+Allow: /auth
+Allow: /choose-subject
+Disallow: /dashboard
+Disallow: /assessment
+Disallow: /skill-gap
+Disallow: /roadmap
+Disallow: /goal-setting
+Disallow: /api/
+
+Sitemap: https://bodha-frontend-production.up.railway.app/sitemap.xml

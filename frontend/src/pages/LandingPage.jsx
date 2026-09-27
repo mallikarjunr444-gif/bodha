@@ -514,6 +514,21 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* Platform Leadership */}
+      <section className="py-12 border-t border-slate-800/80 bg-[#0a0f1d]/30 text-center">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 space-y-2">
+          <p className="text-xs uppercase font-mono tracking-widest text-sky-400 font-semibold">
+            Platform Leadership
+          </p>
+          <p className="text-sm sm:text-base text-slate-200 font-medium">
+            Jnanora is architected and founded by <strong className="text-white">Mallanagouda M</strong> — Founder &amp; CEO.
+          </p>
+          <p className="text-xs text-slate-400 max-w-lg mx-auto leading-relaxed">
+            Built to replace fragmented self-paced study with deterministic diagnostic assessments, skill-gap telemetry, and verified mastery roadmaps.
+          </p>
+        </div>
+      </section>
+
       {/* Call to Action Footer Banner */}
       <section className="py-20 text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
