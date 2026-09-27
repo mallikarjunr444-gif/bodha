@@ -11,11 +11,11 @@ export default function Footer() {
           <div className="md:col-span-2 space-y-4">
             <BrandLogo size="md" showWordmark={true} showTagline={true} />
             <p className="text-xs sm:text-sm text-[var(--text-secondary)] max-w-md leading-relaxed">
-              BODHA is an AI-powered personalized learning and skill-development platform. It combines diagnostic assessments, skill-gap analysis, dynamic sequenced roadmaps, and persistent learner profiling.
+              Jnanora is an AI-powered personalized learning and skill-development platform. It combines diagnostic assessments, skill-gap analysis, dynamic sequenced roadmaps, and persistent learner profiling.
             </p>
-            <div className="text-xs text-blue-400 font-medium pt-1 flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-              <span>AI is an adaptive module in BODHA, not the entire product.</span>
+            <div className="text-xs text-sky-400 font-medium pt-1 flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
+              <span>AI is an adaptive module in Jnanora, not the entire product.</span>
             </div>
           </div>
 
@@ -60,7 +60,7 @@ export default function Footer() {
         </div>
 
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[var(--text-muted)] gap-4">
-          <p>© {new Date().getFullYear()} BODHA Platform. Portfolio-grade autonomous learning architecture.</p>
+          <p>© {new Date().getFullYear()} Jnanora Platform. Portfolio-grade autonomous learning architecture.</p>
           <p className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-400" />
             <span>PostgreSQL & Spring Boot Online</span>

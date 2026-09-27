@@ -180,7 +180,7 @@ export default function AssessmentPage() {
         {loading ? (
           <div className="py-20">
             <LoadingSpinner
-              message="Connecting to BODHA Assessment Engine & loading secure question items..."
+              message="Connecting to Jnanora Assessment Engine & loading secure question items..."
               size="lg"
             />
           </div>

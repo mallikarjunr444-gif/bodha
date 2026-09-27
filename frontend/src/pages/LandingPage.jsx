@@ -80,32 +80,32 @@ export default function LandingPage() {
     {
       feature: 'Pedagogical Philosophy',
       chatbot: 'Ad-hoc conversational prompt answering with no memory of learning trajectory',
-      bodha: 'Structured, goal-oriented mastery pipeline backed by a persistent learner profile',
+      jnanora: 'Structured, goal-oriented mastery pipeline backed by a persistent learner profile',
     },
     {
       feature: 'Curriculum & Sequence',
       chatbot: 'Passive text stream; learner must already know what questions to ask next',
-      bodha: 'Prerequisite-enforced curriculum milestones with sequential unlocking',
+      jnanora: 'Prerequisite-enforced curriculum milestones with sequential unlocking',
     },
     {
       feature: 'Competency Evaluation',
       chatbot: 'Guesses user proficiency or requires repetitive manual prompt prompting',
-      bodha: 'Rigorous diagnostic assessments detect exact concept deficiencies automatically',
+      jnanora: 'Rigorous diagnostic assessments detect exact concept deficiencies automatically',
     },
     {
       feature: 'Learner State Persistence',
       chatbot: 'Ephemeral chats that evaporate across sessions',
-      bodha: 'PostgreSQL relational persistence tracking XP, streaks, module mastery, and attempts',
+      jnanora: 'PostgreSQL relational persistence tracking XP, streaks, module mastery, and attempts',
     },
     {
       feature: 'Learning Methodology',
       chatbot: 'Wall-of-text reading that causes cognitive overload and passive illusion of competence',
-      bodha: 'Active recall: bite-sized theory + hands-on labs + checkpoint verification',
+      jnanora: 'Active recall: bite-sized theory + hands-on labs + checkpoint verification',
     },
     {
       feature: 'AI Role in Architecture',
       chatbot: 'The chatbot IS the product, hallucinating arbitrary educational claims',
-      bodha: 'AI is an adaptive module grounded in deterministic learner gaps and roadmap position',
+      jnanora: 'AI is an adaptive module grounded in deterministic learner gaps and roadmap position',
     },
   ];
 
@@ -196,7 +196,7 @@ export default function LandingPage() {
 
           {/* Subtitle */}
           <p className="max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed font-normal">
-            BODHA systematically guides you through <strong className="text-white">diagnostic baseline evaluations</strong>,{' '}
+            Jnanora systematically guides you through <strong className="text-white">diagnostic baseline evaluations</strong>,{' '}
             <strong className="text-white">skill-gap detection</strong>, and <strong className="text-white">prerequisite-sequenced roadmaps</strong>. AI serves as our context-aware tutor, not a hallucinating wrapper.
           </p>
 
@@ -270,7 +270,7 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
             <Badge variant="primary" size="sm" icon={<Zap className="w-3.5 h-3.5" />}>
-              The BODHA Engine
+              The Jnanora Engine
             </Badge>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
               The End-to-End Mastery Pipeline
@@ -316,7 +316,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Product Differentiation: Bodha vs Chatbots */}
+      {/* Product Differentiation: Jnanora vs Chatbots */}
       <section id="differentiation" className="py-20 md:py-28 bg-[#0a0f1d]/50 border-b border-slate-800/80">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
@@ -324,10 +324,10 @@ export default function LandingPage() {
               Architecture Differentiation
             </Badge>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-              Why BODHA is NOT a ChatGPT Wrapper
+              Why Jnanora is NOT a ChatGPT Wrapper
             </h2>
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-              ChatGPT answers isolated queries with no tracking. BODHA is a persistent learning operating system with diagnostic rigor, sequence validation, and telemetry.
+              ChatGPT answers isolated queries with no tracking. Jnanora is a persistent learning operating system with diagnostic rigor, sequence validation, and telemetry.
             </p>
           </div>
 
@@ -341,7 +341,7 @@ export default function LandingPage() {
               </div>
               <div className="col-span-5 text-blue-300 flex items-center gap-1.5">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                <span>BODHA Structured Mastery Platform</span>
+                <span>Jnanora Structured Mastery Platform</span>
               </div>
             </div>
 
@@ -360,7 +360,7 @@ export default function LandingPage() {
                   </div>
                   <div className="col-span-5 text-slate-200 leading-relaxed flex items-start gap-2 bg-blue-950/20 -my-4 py-4 px-3 rounded-lg border-l-2 border-blue-500">
                     <span className="text-emerald-400 font-bold shrink-0 mt-0.5">✓</span>
-                    <span className="font-medium text-blue-100">{row.bodha}</span>
+                    <span className="font-medium text-blue-100">{row.jnanora}</span>
                   </div>
                 </div>
               ))}
@@ -380,7 +380,7 @@ export default function LandingPage() {
               Calibrated for Any Target Discipline
             </h2>
             <p className="text-slate-400 text-sm">
-              Bodha's pedagogical diagnostic architecture applies to systems engineering, discrete mathematics, linguistic fluency, or strategic trades.
+              Jnanora's pedagogical diagnostic architecture applies to systems engineering, discrete mathematics, linguistic fluency, or strategic trades.
             </p>
           </div>
 

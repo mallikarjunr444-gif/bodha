@@ -119,7 +119,7 @@ export default function SkillGapPage() {
           eyebrow="Competency Telemetry"
           eyebrowIcon={BarChart3}
           title="Skill-Gap Analysis & Baseline Calibration"
-          description={`Diagnostic results for ${selectedSubject?.title || 'Selected Track'}. Unlike generic tools that guess your capabilities, BODHA calculates precisely where your foundation is solid and where targeted milestones are required.`}
+          description={`Diagnostic results for ${selectedSubject?.title || 'Selected Track'}. Unlike generic tools that guess your capabilities, Jnanora calculates precisely where your foundation is solid and where targeted milestones are required.`}
         />
 
         {/* Error alert */}
@@ -297,7 +297,7 @@ export default function SkillGapPage() {
                     Dynamic Roadmap Ready for Synthesis
                   </h4>
                   <p className="text-xs text-[var(--text-muted)] mt-0.5">
-                    Bodha synthesizes your diagnostic profile into an adaptive learning path with topological sequencing.
+                    Jnanora synthesizes your diagnostic profile into an adaptive learning path with topological sequencing.
                   </p>
                 </div>
               </div>

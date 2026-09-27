@@ -1,6 +1,6 @@
-# BODHA — Frontend Client
+# Jnanora — Frontend Client
 
-The frontend client for **BODHA**, an AI-powered personalized learning and skill-development platform.
+The frontend client for **Jnanora**, an AI-powered personalized learning and skill-development platform.
 
 ## Tech Stack
 - **Framework:** [React 19](https://react.dev/)
@@ -14,7 +14,7 @@ The frontend client for **BODHA**, an AI-powered personalized learning and skill
 
 | Step | Screen | Route | Description |
 | :--- | :--- | :--- | :--- |
-| **1** | **Landing Page** | `/` | Hero value proposition, 8-step journey overview, and "Why Bodha vs ChatGPT" differentiator comparison. |
+| **1** | **Landing Page** | `/` | Hero value proposition, 8-step journey overview, and "Why Jnanora vs ChatGPT" differentiator comparison. |
 | **2** | **Sign Up / Login** | `/auth` | Mock authentication with tab toggle and 1-click "Continue as Demo Learner". |
 | **3** | **Choose Subject or Skill** | `/choose-subject` | Multi-domain filter tabs (Software, Math, Languages, Business), search, and custom arbitrary skill entry. |
 | **4** | **Goal, Level & Time** | `/goal-setting` | Target calibration (Career, Academic, Project, Mastery), baseline experience level, and daily commitment. |

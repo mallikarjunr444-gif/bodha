@@ -8,7 +8,6 @@ import {
   Sparkles,
   PlusCircle,
   Clock,
-  Layers,
 } from 'lucide-react';
 
 import { useLearner } from '../context/LearnerContext';
@@ -95,7 +94,7 @@ export default function ChooseSubjectPage() {
       domain: 'custom',
       domainName: 'Custom Skill Track',
       title: customSubjectInput.trim(),
-      tagline: 'Custom learning track synthesized with Bodha adaptive diagnostic frameworks',
+      tagline: 'Custom learning track synthesized with Jnanora adaptive diagnostic frameworks',
       difficultyLevel: 'Tailored Baseline',
       difficulty: 'Tailored Baseline',
       estimatedWeeks: 6,
@@ -176,7 +175,7 @@ export default function ChooseSubjectPage() {
         {/* Loading Spinner */}
         {loading ? (
           <div className="py-20">
-            <LoadingSpinner message="Fetching verified learning tracks from BODHA catalog..." size="lg" />
+            <LoadingSpinner message="Fetching verified learning tracks from Jnanora catalog..." size="lg" />
           </div>
         ) : filteredSubjects.length === 0 ? (
           <div className="mb-10">
@@ -264,7 +263,7 @@ export default function ChooseSubjectPage() {
               </h3>
             </div>
             <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
-              Bodha's pedagogical engine can construct diagnostic assessments and roadmaps for arbitrary disciplines (e.g. "Quantum Computing", "Organic Chemistry", "Japanese CEFR B1").
+              Jnanora's pedagogical engine can construct diagnostic assessments and roadmaps for arbitrary disciplines (e.g. "Quantum Computing", "Organic Chemistry", "Japanese CEFR B1").
             </p>
 
             <form onSubmit={handleCreateCustom} className="flex flex-col sm:flex-row gap-3">
@@ -290,7 +289,7 @@ export default function ChooseSubjectPage() {
         </Card>
 
         {/* Floating / Sticky Bottom Bar */}
-        <div className="sticky bottom-4 z-30 p-4 rounded-2xl bodha-glass border border-slate-700/80 shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="sticky bottom-4 z-30 p-4 rounded-2xl jnanora-glass border border-slate-700/80 shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3 text-sm text-slate-300">
             <div className="w-9 h-9 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 shrink-0">
               <BookOpen className="w-4 h-4" />

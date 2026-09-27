@@ -16,7 +16,7 @@ export default function Card({
     elevated:
       'bg-[#141f36] border border-[#2a3b5c] shadow-xl shadow-black/40',
     glass:
-      'bodha-glass shadow-2xl shadow-black/50',
+      'jnanora-glass shadow-2xl shadow-black/50',
     glow:
       'bg-[#0e1526] border border-blue-500/40 shadow-xl shadow-blue-500/10 ring-1 ring-blue-500/30',
     ai:

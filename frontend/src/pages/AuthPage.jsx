@@ -16,7 +16,7 @@ export default function AuthPage() {
 
   const [isSignUp, setIsSignUp] = useState(false);
   const [fullName, setFullName] = useState(demoEnabled ? 'Alex Learner' : '');
-  const [email, setEmail] = useState(demoEnabled ? 'alex@bodha.ai' : '');
+  const [email, setEmail] = useState(demoEnabled ? 'alex@jnanora.ai' : '');
   const [password, setPassword] = useState(demoEnabled ? 'Password123!' : '');
   const [loading, setLoading] = useState(false);
   const [formError, setFormError] = useState(null);
@@ -70,7 +70,7 @@ export default function AuthPage() {
               <BrandLogo size="lg" showWordmark={true} asLink={true} />
             </div>
             <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-              {isSignUp ? 'Create Learner Profile' : 'Welcome Back to BODHA'}
+              {isSignUp ? 'Create Learner Profile' : 'Welcome Back to Jnanora'}
             </h1>
             <p className="text-xs sm:text-sm text-slate-400 max-w-xs mx-auto">
               {isSignUp

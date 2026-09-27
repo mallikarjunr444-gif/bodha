@@ -115,7 +115,7 @@ export default function GoalSettingPage() {
           badgeIcon={<Target className="w-3.5 h-3.5 text-blue-400" />}
           badgeVariant="primary"
           title="Calibrate your goals & constraints"
-          description={`Configuring learning trajectory for ${selectedSubject?.title || 'your selected focus'}. Bodha adjusts roadmap depth and diagnostic rigor based on your primary objective, current familiarity, and real schedule.`}
+          description={`Configuring learning trajectory for ${selectedSubject?.title || 'your selected focus'}. Jnanora adjusts roadmap depth and diagnostic rigor based on your primary objective, current familiarity, and real schedule.`}
         />
 
         {submitError && (

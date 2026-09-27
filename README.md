@@ -1,4 +1,4 @@
-# BODHA (बोध) — AI-Powered Personalized Learning & Skill-Development Platform
+# JNANORA — AI-Powered Personalized Learning & Skill-Development Platform
 
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.4.3-brightgreen.svg?logo=springboot)](https://spring.io/projects/spring-boot)
 [![Java](https://img.shields.io/badge/Java-21%20LTS-orange.svg?logo=openjdk)](https://www.oracle.com/java/)
@@ -17,9 +17,9 @@
 
 ## 1. Overview
 
-**BODHA** (*derived from Sanskrit **बोध**, meaning deep understanding, perception, and awakening*) is an AI-powered personalized learning platform that creates structured, adaptive educational paths for **any discipline**—from backend systems and applied mathematics to conversational languages and product strategy.
+**Jnanora** is an AI-powered personalized learning platform that creates structured, adaptive educational paths for **any discipline**—from backend systems and applied mathematics to conversational languages and product strategy.
 
-Modern self-paced learning is overwhelmingly fragmented: learners bounce between video tutorials, disorganized documentation, and unstructured chatbot conversations without measuring real competency. BODHA replaces passive browsing with an **authoritative, closed-loop pedagogical engine**:
+Modern self-paced learning is overwhelmingly fragmented: learners bounce between video tutorials, disorganized documentation, and unstructured chatbot conversations without measuring real competency. Jnanora replaces passive browsing with an **authoritative, closed-loop pedagogical engine**:
 
 ```
 Learner ──► Subject Catalog ──► Goal Calibration ──► Diagnostic Assessment
@@ -33,9 +33,9 @@ Grounded AI Recommendations & Next-Step Guidance
 
 ---
 
-## 2. Why BODHA is Not a "Generic CRUD App" or "ChatGPT Wrapper"
+## 2. Why Jnanora is Not a "Generic CRUD App" or "ChatGPT Wrapper"
 
-| Dimension | Generic CRUD Application | Typical "ChatGPT Wrapper" | **BODHA Platform** |
+| Dimension | Generic CRUD Application | Typical "ChatGPT Wrapper" | **Jnanora Platform** |
 |---|---|---|---|
 | **Curriculum Structure** | Static lists of links or videos | AI generates arbitrary text on each prompt | **Relational, milestone-based roadmaps sequenced by prerequisite hierarchy** |
 | **Competency Measurement** | None (self-reported checkboxes) | Ephemeral quiz generated with hallucinations | **Deterministic diagnostic evaluation tagged to atomic skill competencies** |

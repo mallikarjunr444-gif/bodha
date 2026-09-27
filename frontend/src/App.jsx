@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { LearnerProvider } from './context/LearnerContext';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import JnanoraSplash from './components/common/JnanoraSplash';
 
 // 8 Core Journey Pages
 import LandingPage from './pages/LandingPage';
@@ -15,10 +16,15 @@ import RoadmapPage from './pages/RoadmapPage';
 import DashboardPage from './pages/DashboardPage';
 
 export default function App() {
+  const [showSplash, setShowSplash] = useState(true);
+
   return (
     <LearnerProvider>
       <BrowserRouter>
-        <div className="min-h-screen bg-[#080b11] text-slate-100 flex flex-col font-sans selection:bg-blue-600 selection:text-white">
+        {showSplash && (
+          <JnanoraSplash onFinish={() => setShowSplash(false)} />
+        )}
+        <div className="min-h-screen bg-[#080d14] text-slate-100 flex flex-col font-sans selection:bg-sky-600 selection:text-white">
           <Navbar />
           <div className="flex-1 flex flex-col">
             <Routes>

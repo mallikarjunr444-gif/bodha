@@ -1,25 +1,50 @@
 @import "tailwindcss";
 
 :root {
+  /* ========================================================
+     JNANORA BRAND IDENTITY (Derived from Official Logo Asset)
+     Source of truth: frontend/public/jnanora-logo.png
+     - Sky Blue background (#5facd6 / #5eafe5)
+     - Cream / Ivory wordmark (#f7f4ea / #fdfcf9)
+     - Dark Navy book & podium (#162d42 / #1b3a56)
+     - Bear & Book illustration mark
+     ======================================================== */
+  --jnanora-sky: #5eafe5;
+  --jnanora-sky-light: #7fc3ee;
+  --jnanora-sky-dark: #3b9cd7;
+  --jnanora-sky-glow: rgba(94, 175, 229, 0.35);
+  --jnanora-sky-subtle: rgba(94, 175, 229, 0.12);
+  --jnanora-sky-border: rgba(94, 175, 229, 0.3);
+
+  --jnanora-cream: #f7f4ea;
+  --jnanora-cream-light: #fdfcf9;
+  --jnanora-cream-muted: #e4dfd3;
+
+  --jnanora-navy: #162d42;
+  --jnanora-navy-deep: #0e1e2d;
+  --jnanora-navy-surface: #122435;
+  --jnanora-navy-card: #18334b;
+  --jnanora-navy-glow: rgba(22, 45, 66, 0.6);
+
   /* Canvas & Surfaces */
-  --bg-canvas: #080b11;
-  --bg-surface: #0e1526;
-  --bg-surface-elevated: #141f36;
-  --bg-surface-glass: rgba(14, 21, 38, 0.75);
-  --bg-surface-hover: #1a2744;
+  --bg-canvas: #080d14;
+  --bg-surface: #0e1826;
+  --bg-surface-elevated: #142236;
+  --bg-surface-glass: rgba(14, 24, 38, 0.78);
+  --bg-surface-hover: #1a2d48;
 
   /* Borders */
   --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-default: #1e2b45;
-  --border-hover: #334466;
-  --border-focus: #3b82f6;
+  --border-default: #1e324c;
+  --border-hover: #335073;
+  --border-focus: var(--jnanora-sky);
 
-  /* Primary Brand (Electric Cobalt) */
-  --primary: #3b82f6;
-  --primary-hover: #2563eb;
-  --primary-glow: rgba(59, 130, 246, 0.35);
-  --primary-subtle: rgba(59, 130, 246, 0.1);
-  --primary-border: rgba(59, 130, 246, 0.3);
+  /* Primary Brand (Jnanora Sky Blue) */
+  --primary: #4fa7e2;
+  --primary-hover: #3a97d4;
+  --primary-glow: rgba(79, 167, 226, 0.35);
+  --primary-subtle: rgba(79, 167, 226, 0.12);
+  --primary-border: rgba(79, 167, 226, 0.3);
 
   /* AI & Intelligence Accent (Bioluminescent Cyan) */
   --accent-ai: #06b6d4;
@@ -65,18 +90,19 @@
     height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #080b11;
+    background: #080d14;
   }
   ::-webkit-scrollbar-thumb {
-    background: #1e293b;
+    background: #1e324c;
     border-radius: 9999px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #334155;
+    background: #335073;
   }
 }
 
-/* Glassmorphism and specialized lighting effects */
+/* Glassmorphism and specialized Jnanora brand effects */
+.jnanora-glass,
 .bodha-glass {
   background-color: var(--bg-surface-glass);
   backdrop-filter: blur(16px);
@@ -84,18 +110,98 @@
   border: 1px solid var(--border-subtle);
 }
 
+.jnanora-glow-primary,
 .bodha-glow-primary {
   box-shadow: 0 0 25px -4px var(--primary-glow);
 }
 
+.jnanora-glow-ai,
 .bodha-glow-ai {
   box-shadow: 0 0 25px -4px var(--accent-ai-glow);
 }
 
+.jnanora-gradient-brand,
 .bodha-gradient-brand {
-  background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+  background: linear-gradient(135deg, var(--jnanora-sky) 0%, #06b6d4 100%);
 }
 
+.jnanora-gradient-card,
 .bodha-gradient-card {
-  background: linear-gradient(180deg, rgba(20, 31, 54, 0.6) 0%, rgba(14, 21, 38, 0.8) 100%);
+  background: linear-gradient(180deg, rgba(20, 34, 54, 0.6) 0%, rgba(14, 24, 38, 0.85) 100%);
+}
+
+/* ========================================================
+   JNANORA SPLASH & AMBIENT GLOW ANIMATIONS (Module S)
+   ======================================================== */
+@keyframes jnanora-logo-reveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes jnanora-glow-expand {
+  0% {
+    opacity: 0;
+    transform: scale(0.75);
+  }
+  40% {
+    opacity: 0.9;
+    transform: scale(1.15);
+  }
+  75% {
+    opacity: 0.65;
+    transform: scale(1.3);
+  }
+  100% {
+    opacity: 0.45;
+    transform: scale(1.4);
+  }
+}
+
+@keyframes jnanora-light-shimmer {
+  0% {
+    transform: translateX(-160%) rotate(25deg);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.55;
+  }
+  60% {
+    transform: translateX(160%) rotate(25deg);
+    opacity: 0.55;
+  }
+  100% {
+    transform: translateX(160%) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+.jnanora-splash-logo {
+  animation: jnanora-logo-reveal 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.jnanora-splash-glow {
+  animation: jnanora-glow-expand 3s ease-out forwards;
+}
+
+.jnanora-splash-shimmer {
+  animation: jnanora-light-shimmer 2.2s ease-in-out 0.8s 1 forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jnanora-splash-logo,
+  .jnanora-splash-glow,
+  .jnanora-splash-shimmer {
+    animation: none !important;
+    transform: none !important;
+  }
 }

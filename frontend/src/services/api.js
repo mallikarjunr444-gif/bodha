@@ -1,5 +1,5 @@
 /**
- * Centralized API Client Layer for BODHA
+ * Centralized API Client Layer for Jnanora
  *
  * Provides typed, clean REST invocation abstractions across all 8 modules.
  * Configured via Vite environment variable VITE_API_BASE_URL.
@@ -100,7 +100,7 @@ async function apiFetch(endpoint, options = {}) {
     response = await fetch(url, config);
   } catch (networkError) {
     throw new ApiError(
-      `Network connection failed. Unable to connect to BODHA API at ${API_BASE_URL}. Ensure the backend server is running.`,
+      `Network connection failed. Unable to connect to Jnanora API at ${API_BASE_URL}. Ensure the backend server is running.`,
       0,
       networkError
     );

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Loader2 } from 'lucide-react';
-import { BodhaEmblem } from './BrandLogo';
+import { JnanoraEmblem } from './BrandLogo';
 
 export default function LoadingSpinner({
   message = 'Loading...',
@@ -21,11 +21,11 @@ export default function LoadingSpinner({
     <div className={`flex flex-col items-center justify-center gap-3 text-[var(--text-muted)] ${className}`}>
       {shouldShowEmblem && (
         <div className="relative mb-1">
-          <BodhaEmblem className={size === 'lg' ? 'w-12 h-12' : 'w-10 h-10'} />
-          <div className="absolute inset-0 bg-blue-500/20 blur-xl rounded-full pointer-events-none animate-pulse" />
+          <JnanoraEmblem className={size === 'lg' ? 'w-12 h-12' : 'w-10 h-10'} />
+          <div className="absolute inset-0 bg-sky-500/20 blur-xl rounded-full pointer-events-none animate-pulse" />
         </div>
       )}
-      <Loader2 className={`${sizeClasses[size] || sizeClasses.md} animate-spin text-blue-400`} />
+      <Loader2 className={`${sizeClasses[size] || sizeClasses.md} animate-spin text-sky-400`} />
       {message && (
         <p className="text-xs sm:text-sm font-medium animate-pulse text-[var(--text-secondary)] text-center max-w-sm">
           {message}
