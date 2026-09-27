@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+:root {
+  /* Canvas & Surfaces */
+  --bg-canvas: #080b11;
+  --bg-surface: #0e1526;
+  --bg-surface-elevated: #141f36;
+  --bg-surface-glass: rgba(14, 21, 38, 0.75);
+  --bg-surface-hover: #1a2744;
+
+  /* Borders */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-default: #1e2b45;
+  --border-hover: #334466;
+  --border-focus: #3b82f6;
+
+  /* Primary Brand (Electric Cobalt) */
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+  --primary-glow: rgba(59, 130, 246, 0.35);
+  --primary-subtle: rgba(59, 130, 246, 0.1);
+  --primary-border: rgba(59, 130, 246, 0.3);
+
+  /* AI & Intelligence Accent (Bioluminescent Cyan) */
+  --accent-ai: #06b6d4;
+  --accent-ai-hover: #0891b2;
+  --accent-ai-glow: rgba(6, 182, 212, 0.35);
+  --accent-ai-subtle: rgba(6, 182, 212, 0.1);
+  --accent-ai-border: rgba(6, 182, 212, 0.3);
+
+  /* Semantic Feedback */
+  --success: #10b981;
+  --success-subtle: rgba(16, 185, 129, 0.12);
+  --success-border: rgba(16, 185, 129, 0.25);
+
+  --warning: #f59e0b;
+  --warning-subtle: rgba(245, 158, 11, 0.12);
+  --warning-border: rgba(245, 158, 11, 0.25);
+
+  --danger: #f43f5e;
+  --danger-subtle: rgba(244, 63, 94, 0.12);
+  --danger-border: rgba(244, 63, 94, 0.25);
+
+  /* Typography Colors */
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-canvas);
+    color: var(--text-primary);
+  }
+
+  code, kbd, samp, pre {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  }
+
+  /* Custom subtle scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #080b11;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #334155;
+  }
+}
+
+/* Glassmorphism and specialized lighting effects */
+.bodha-glass {
+  background-color: var(--bg-surface-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+}
+
+.bodha-glow-primary {
+  box-shadow: 0 0 25px -4px var(--primary-glow);
+}
+
+.bodha-glow-ai {
+  box-shadow: 0 0 25px -4px var(--accent-ai-glow);
+}
+
+.bodha-gradient-brand {
+  background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+}
+
+.bodha-gradient-card {
+  background: linear-gradient(180deg, rgba(20, 31, 54, 0.6) 0%, rgba(14, 21, 38, 0.8) 100%);
+}

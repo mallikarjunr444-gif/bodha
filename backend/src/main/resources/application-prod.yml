@@ -1,0 +1,45 @@
+# ============================================================
+# BODHA — Production Spring Profile
+# Activated by SPRING_PROFILES_ACTIVE=prod
+# All secrets must come from environment variables — never hardcode
+# ============================================================
+
+server:
+  port: ${PORT:8080}
+
+spring:
+  datasource:
+    url: ${DATABASE_URL:${SPRING_DATASOURCE_URL}}
+    username: ${DATABASE_USERNAME:${SPRING_DATASOURCE_USERNAME}}
+    password: ${DATABASE_PASSWORD:${SPRING_DATASOURCE_PASSWORD}}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 5
+      minimum-idle: 1
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+    open-in-view: false
+
+  # Disable dangerous actuator endpoints in production
+  # Keep only health and info
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: never
+
+logging:
+  level:
+    com.bodha: INFO
+    org.springframework.security: WARN
+    org.hibernate: WARN
+    root: WARN

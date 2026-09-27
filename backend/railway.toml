@@ -1,0 +1,11 @@
+[build]
+# Railway auto-detects Maven/Java and uses Nixpacks to build
+# No Dockerfile needed — Nixpacks handles Java 21 + Maven
+builder = "NIXPACKS"
+
+[deploy]
+startCommand = "java -Dspring.profiles.active=prod -Dserver.port=$PORT -jar target/bodha-backend-0.0.1-SNAPSHOT.jar"
+healthcheckPath = "/api/health"
+healthcheckTimeout = 300
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 5

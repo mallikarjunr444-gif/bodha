@@ -1,0 +1,8 @@
+[phases.setup]
+nixPkgs = ["jdk21"]
+
+[phases.build]
+cmds = ["mvn -DskipTests clean package"]
+
+[start]
+cmd = "java -Dspring.profiles.active=prod -Dserver.port=$PORT -jar target/bodha-backend-0.0.1-SNAPSHOT.jar"
